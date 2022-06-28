@@ -9,5 +9,9 @@
     "dev": "nodemon server.js"
   },
   "author": "Alex Curran",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "socket.io": "^4.5.1"
+  }
 }
