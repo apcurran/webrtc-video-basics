@@ -3,6 +3,7 @@
 const express = require("express");
 const socket = require("socket.io");
 const http = require("http");
+const path = require("path");
 
 const app = express();
 const server = http.createServer(app);
@@ -10,6 +11,11 @@ const io = socket(server);
 const PORT = process.env.PORT || 5000;
 
 let rooms = new Map();
+
+// catch-all handler to send back React's index.html file.
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+});
 
 io.on("connection", (mySocket) => {
     // allow users to join a room
