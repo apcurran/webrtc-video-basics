@@ -14,7 +14,7 @@ let rooms = new Map();
 
 // catch-all handler to send back React's index.html file.
 app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 io.on("connection", (mySocket) => {
